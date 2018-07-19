@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"golang.org/x/tour/tree"
 )
@@ -30,10 +31,14 @@ func Same(t1, t2 *tree.Tree) bool {
 
 	var sum1, sum2 int
 
-	for i := 0; i < 10; i++ {
+	n := strings.Count(t1.String(), "(")
+
+	for i := 0; i < n; i++ {
 		sum1 += <-ch1
 	}
-	for i := 0; i < 10; i++ {
+
+	n = strings.Count(t1.String(), "(")
+	for i := 0; i < n; i++ {
 		sum2 += <-ch2
 	}
 
